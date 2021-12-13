@@ -1,10 +1,11 @@
-package com.example.stockmarketapi.models;
+package com.example.stockmarketapi.models.market;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import javax.persistence.Entity;
 import java.util.List;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
+
 public class DailyOpenAndClose {
 
     private String status;

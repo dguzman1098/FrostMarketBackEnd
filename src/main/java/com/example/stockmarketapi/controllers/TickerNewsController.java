@@ -1,8 +1,8 @@
 package com.example.stockmarketapi.controllers;
 
-import com.example.stockmarketapi.models.TickerDetails;
-import com.example.stockmarketapi.models.TickerNews;
-import com.example.stockmarketapi.services.TickerDetailsService;
+import com.example.stockmarketapi.models.tickernews.TickerNews;
+import com.example.stockmarketapi.models.tickernews.TickerNewsResults;
+import com.example.stockmarketapi.models.tickers.TickerResults;
 import com.example.stockmarketapi.services.TickerNewsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +16,14 @@ public class TickerNewsController {
     private TickerNewsService tickerNewsService;
 
     @GetMapping("ticker-news/{stockTicker}")
-    public TickerNews fetchTickerDetailsByName(@PathVariable String stockTicker){
+    public TickerNewsResults fetchTickerDetailsByName(@PathVariable String stockTicker){
         return tickerNewsService.getNewsByTickerName(stockTicker);
     }
+
+    //saves ticker results to this path
+//    @GetMapping("saved-news")
+//    public TickerNewsResults saveTickerResults(){
+//        return tickerNewsService.saveNewsByName();
+//    }
+
 }

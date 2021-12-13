@@ -1,34 +1,40 @@
-package com.example.stockmarketapi.models;
+package com.example.stockmarketapi.models.tickernews;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.util.List;
 
 //ticker news and updates
-public class TickerNews {
 
-    private List<TickerNewsResults> results;
+public class TickerNewsResults {
+
+    private List<TickerNews> results;
+
     private String status;
+
+    @JsonIgnore
     private String request_id;
+
     private Integer count;
     private String next_url;
-//    private String title;
-//    private String author;
-//    private String published_utc;
-//    private String article_url;
-//    private List<String> tickers;
-//    private String amp_url;
-//    private String image_url;
-//    private String description;
-//    private List<String> keywords;
 
+    public TickerNewsResults(){
 
-    public TickerNews() {
     }
 
-    public List<TickerNewsResults> getResults() {
+    public TickerNewsResults(List<TickerNews> results) {
+        this.results = results;
+    }
+
+    public List<TickerNews> getResults() {
         return results;
     }
 
-    public void setResults(List<TickerNewsResults> results) {
+    public void setResults(List<TickerNews> results) {
         this.results = results;
     }
 

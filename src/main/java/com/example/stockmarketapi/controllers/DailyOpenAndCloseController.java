@@ -1,9 +1,7 @@
 package com.example.stockmarketapi.controllers;
 
-import com.example.stockmarketapi.models.DailyOpenAndClose;
-import com.example.stockmarketapi.models.TickerDetails;
+import com.example.stockmarketapi.models.market.DailyOpenAndClose;
 import com.example.stockmarketapi.services.DailyOpenAndCloseService;
-import com.example.stockmarketapi.services.TickerDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

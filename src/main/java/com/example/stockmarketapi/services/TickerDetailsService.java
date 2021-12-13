@@ -1,7 +1,7 @@
 package com.example.stockmarketapi.services;
 
 import com.example.stockmarketapi.StockMarketApiApplication;
-import com.example.stockmarketapi.models.TickerDetails;
+import com.example.stockmarketapi.models.tickerdetails.TickerDetails;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,14 +12,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Service
-
 public class TickerDetailsService {
 
-//    @Autowired
-//    TickerRepository tickerRepository;
 
     @Autowired
     RestTemplate restTemplate;
+
 
     private static final Logger logger = LoggerFactory.getLogger(StockMarketApiApplication.class);
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
@@ -28,9 +26,9 @@ public class TickerDetailsService {
         try {
             TickerDetails details = restTemplate.getForObject(
                     "https://api.polygon.io/v1/meta/symbols/" + name + "/company?apiKey=bamxspsyOWyNVumgmrmxfo648Bq5A3OU", TickerDetails.class);
+
             logger.info("The time is now {}", dateFormat.format(new Date()));
             logger.info(details.toString());
-            //tickerRepository.save(details);
             return details;
         } catch (RuntimeException e) {
             logger.info("Failed to load Ticker Details for Ticker: " + name);

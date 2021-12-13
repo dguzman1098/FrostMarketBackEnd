@@ -1,20 +1,40 @@
-package com.example.stockmarketapi.models;
+package com.example.stockmarketapi.models.tickernews;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.util.List;
 
-public class TickerNewsResults {
+
+public class TickerNews {
+
+
+    @JsonIgnore
+    private List<String> publisher;
 
     private String title;
     private String author;
     private String published_utc;
     private String article_url;
+
+    @JsonIgnore
     private List<String> tickers;
+
     private String amp_url;
     private String image_url;
     private String description;
+
+    @JsonIgnore
     private List<String> keywords;
 
-    public TickerNewsResults() {
+    public TickerNews() {
+    }
+
+
+    public List<String> getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(List<String> publisher) {
+        this.publisher = publisher;
     }
 
     public String getTitle() {
@@ -88,4 +108,5 @@ public class TickerNewsResults {
     public void setKeywords(List<String> keywords) {
         this.keywords = keywords;
     }
+
 }

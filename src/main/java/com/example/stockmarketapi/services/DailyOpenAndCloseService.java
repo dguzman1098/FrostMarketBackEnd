@@ -1,15 +1,13 @@
 package com.example.stockmarketapi.services;
 
 import com.example.stockmarketapi.StockMarketApiApplication;
-import com.example.stockmarketapi.models.DailyOpenAndClose;
-import com.example.stockmarketapi.models.TickerDetails;
+import com.example.stockmarketapi.models.market.DailyOpenAndClose;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 

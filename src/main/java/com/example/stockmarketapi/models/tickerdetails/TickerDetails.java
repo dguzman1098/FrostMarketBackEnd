@@ -1,13 +1,20 @@
-package com.example.stockmarketapi.models;
+package com.example.stockmarketapi.models.tickerdetails;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import javax.persistence.*;
 import java.util.Set;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
-
+//
+//@Entity
+@JsonIgnoreProperties()
 //deep, descriptive ticker details
 public class TickerDetails {
+//
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private boolean active;
     private String bloomberg;
@@ -30,9 +37,15 @@ public class TickerDetails {
     private String phone;
     private String sector;
     private int sic;
+
+//    @ElementCollection(targetClass=String.class)
     private Set<String> similar;
+
     private String symbol;
+
+//    @ElementCollection(targetClass=String.class)
     private Set<String> tags;
+
     private String type;
     private String updated;
     private String url;
@@ -40,7 +53,15 @@ public class TickerDetails {
     public TickerDetails() {
     }
 
-    public boolean getActive() {
+//    public Long getId() {
+//        return id;
+//    }
+//
+//    public void setId(Long id) {
+//        this.id = id;
+//    }
+
+    public boolean isActive() {
         return active;
     }
 

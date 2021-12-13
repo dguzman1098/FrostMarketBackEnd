@@ -1,9 +1,16 @@
-package com.example.stockmarketapi.models;
+package com.example.stockmarketapi.models.tickers;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
+import javax.persistence.*;
+
+@Entity
 public class Ticker {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
     private String ticker;
     private String name;
@@ -18,7 +25,20 @@ public class Ticker {
     private String share_class_figi;
     private String last_updated_utc;
 
+    @ManyToOne(targetEntity = TickerResults.class, fetch = FetchType.LAZY)//many tickers to one result
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @JoinColumn(name="results_id")
+    private TickerResults tickerResults;
+
     public Ticker() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getTicker() {
@@ -115,5 +135,13 @@ public class Ticker {
 
     public void setLast_updated_utc(String last_updated_utc) {
         this.last_updated_utc = last_updated_utc;
+    }
+
+    public TickerResults getTickerResults() {
+        return tickerResults;
+    }
+
+    public void setTickerResults(TickerResults tickerResults) {
+        this.tickerResults = tickerResults;
     }
 }

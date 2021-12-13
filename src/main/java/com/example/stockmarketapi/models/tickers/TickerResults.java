@@ -1,29 +1,55 @@
-package com.example.stockmarketapi.models;
+package com.example.stockmarketapi.models.tickers;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.example.stockmarketapi.models.tickers.Ticker;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import javax.persistence.ElementCollection;
+import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
 
 //brief, individual ticker information
+@Entity
 public class TickerResults {
 
-    private Set<Ticker> results;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    //one result to many tickers
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "tickerResults", fetch = FetchType.LAZY)
+    private List<Ticker> results;
+
     private String status;
+
+    @JsonIgnore
     private String request_id;
+
     private Integer count;
+
+    @JsonIgnore
     private String next_url;
 
     public TickerResults() {
+
     }
 
-    public Set<Ticker> getResults() {
+    public TickerResults(Set<Ticker> results, String next_url) {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public List<Ticker> getResults() {
         return results;
     }
 
-    public void setResults(Set<Ticker> results) {
+    public void setResults(List<Ticker> results) {
         this.results = results;
     }
 
