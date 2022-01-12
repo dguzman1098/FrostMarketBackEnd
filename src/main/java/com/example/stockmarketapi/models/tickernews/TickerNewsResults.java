@@ -69,4 +69,11 @@ public class TickerNewsResults {
     public void setNext_url(String next_url) {
         this.next_url = next_url;
     }
+
+    @Override
+    public String toString() {
+        return "TickerNewsResults{" +
+                "results=" + results +
+                '}';
+    }
 }

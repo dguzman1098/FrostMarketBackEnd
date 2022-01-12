@@ -75,46 +75,6 @@ public class TickerService {
     }
 
 
-//    public TickerResults getTickerByName(String name) {
-//        try {
-//            TickerResults details = restTemplate.getForObject(
-//                    "https://api.polygon.io/v3/reference/tickers?ticker=" + name + "&apiKey=bamxspsyOWyNVumgmrmxfo648Bq5A3OU", TickerResults.class);
-//            logger.info("The time is now {}", dateFormat.format(new Date()));
-//            logger.info("Found Ticker: " + name);
-//            return details;
-//
-//        } catch (RuntimeException e) {
-//            logger.info("Failed to Load Ticker: " + name);
-//        }
-//        return null;
-//    }
-
-    //https://api.polygon.io/v3/reference/tickers?ticker=MSFT&active=true&sort=ticker&order=asc&limit=10&apiKey=bamxspsyOWyNVumgmrmxfo648Bq5A3OU
-
 }
 
 
-//    public Set<Ticker> saveTickers() {
-//        TickerResults data = restTemplate.getForObject(
-//                "https://api.polygon.io/v3/reference/tickers?type=ETF&market=stocks&active=true&sort=ticker&order=asc&limit=1000&apiKey=bamxspsyOWyNVumgmrmxfo648Bq5A3OU", TickerResults.class
-//        );
-//        System.out.println(data);
-//        Set<Ticker> tickers = data.getResults();
-//        for (Ticker ticker : data.getResults()) {
-//            ticker.setId(ticker.getId());
-//            ticker.setTicker(ticker.getTicker());
-//            ticker.setName(ticker.getName());
-//            ticker.setMarket(ticker.getMarket());
-//            ticker.setLocale(ticker.getLocale());
-//            ticker.setPrimary_exchange(ticker.getPrimary_exchange());
-//            ticker.setType(ticker.getType());
-//            ticker.setActive(ticker.getActive());
-//            ticker.setCurrency_name(ticker.getCurrency_name());
-//            ticker.setCik(ticker.getCik());
-//            ticker.setComposite_figi(ticker.getComposite_figi());
-//            ticker.setShare_class_figi(ticker.getShare_class_figi());
-//            ticker.setLast_updated_utc(ticker.getLast_updated_utc());
-//        }
-//        tickerRepository.saveAll(tickers);
-//        return tickers;
-//    }

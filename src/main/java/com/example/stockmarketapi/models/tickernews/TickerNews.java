@@ -109,4 +109,6 @@ public class TickerNews {
         this.keywords = keywords;
     }
 
+
+
 }
